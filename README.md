@@ -13,6 +13,8 @@ After eight years in an agency, working mostly on WordPress, I'm expanding my st
 - [ ] Docker and deploy on AWS (EC2, S3, CloudFront)
 - [ ] CI with GitHub Actions
 - [ ] Next.js
+- [ ] Redis
+- [ ] AWS
 
 ### Curiosity
 - [ ] C

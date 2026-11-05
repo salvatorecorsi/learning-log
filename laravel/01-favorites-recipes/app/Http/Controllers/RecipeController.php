@@ -11,4 +11,9 @@ class RecipeController extends Controller
         $recipes = Recipe::all();
         return view('recipes.index', compact('pageTitle', 'recipes'));
     }
+
+    public function fakeRecipes($count = 10) {
+        return Recipe::factory()->create($count)->make();
+    }
+
 }

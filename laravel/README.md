@@ -75,6 +75,20 @@ Da quanto ho trovato, sembra il vecchio modo di dichiarare componenti con, `@inc
 ### Components (preferisco)
 Richiami il componente con `<x-{name} />` e opzionalmente `<x-{name} props="">` è praticamente vue, e metti tutto dentro `/components`
 
+## Controllers
+Si usano principalmente dentro le route; è dove si chiamano effettivamente le funzioni verso il db, come ad esempio in lettura, inoltre aiutano a rendere leggibile la routes:
+
+```
+Route::get('/recipes', [RecipeController::class, 'getAll'])->name('recipes.index');
+// recipes.index indica la view php da caricare
+
+```
+```
+php artisan make:controller NameController
+```
+
+Molto probabilmente qui dentro andrai a chiamare Model di riferimento (in questo caso il modello Recipe)
+
 
 ## Migrations
 Praticamente sono dei file che determinano la struttura dati, li crei con `php artisan make:migration create_{name}_table` indicando il nome della tabella. Una volta fatto di mette dentro `database/migrations/` il `yyyy_mm_dd_timestamp_create_{name}_table.php` e qui, è possibile dichiarare le funzioni di creazione e distruzioni della tabella, esempio:
@@ -102,6 +116,58 @@ Praticamente sono dei file che determinano la struttura dati, li crei con `php a
 ## Models
 Interfacce basati sul db. 
 `php artisan make:model {Nome}`
+
+Alcune props utili:
+
+```
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class {NomeModelloSingolare} extends Model {
+    use HasFactory; // serve se vuoi generare records programmaticamente, in fase di debug
+
+    protected $fillable = [
+        // nomi dei campi che devono poter essere popolati, se ne manchi uno si aspetta un default
+    ];
+}
+```
+
+## Factories
+`php artisan make:factory {Name}Factory --model={ModelName}`
+oppure
+`php artisan make:factory RecipeFactory --model=Recipe`
+
+Utile per generare demo records, invochi la factor di riferimento e poi di default (anche senza modificare il codice {Name}Factory.php) ti abilita create. Dentro il factory c'è la libreria [FakerPHP](https://fakerphp.org/formatters/), tipicamente usata così:
+
+```
+$faker->name();
+$faker->safeEmail();
+$faker->text();
+$faker->password(2,6);
+$faker->randomElements(['a','b']);
+// ... altri nella documentazione
+```
+
+Nel factory:
+```
+...
+public function definition(): array
+    {
+        return [
+            'name' => fake()->name()
+        ];
+    }
+
+// ma volendo anche
+public function missingName(): array
+    {
+        return [
+            'name' => null
+        ];
+    }
+...
+
+```
+
 
 ## Errori di tutti i giorni
 
