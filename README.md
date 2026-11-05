@@ -8,12 +8,11 @@ After eight years in an agency, working mostly on WordPress, I'm expanding my st
 
 ### Stack
 - [ ] Laravel: routing, controllers, Eloquent, Blade, authentication
-- [ ] Laravel with Inertia and Vue
+- [ ] Laravel with Inertia and React
 - [ ] Automated testing with Pest
 - [ ] Docker and deploy on AWS (EC2, S3, CloudFront)
 - [ ] CI with GitHub Actions
 - [ ] Next.js
-- [ ] Nuxt
 
 ### Curiosity
 - [ ] C
