@@ -4,16 +4,20 @@
 
 Per iniziare
 
-`composer create-project --prefer-dist laravel/laravel project-name`
-`php artisan serve`
-`php artisan migrate`
-`php artisan migrate:rollback`
-`php artisan migrate:rollback --step=2`
-`php artisan migrate:fresh`
+```
+composer create-project --prefer-dist laravel/laravel project-name
+php artisan serve
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate:rollback --step=2
+php artisan migrate:fresh
+```
 
 while
-`php artisan make:migration create_{name}_table`
-`php artisan make:controller NameController`
+```
+php artisan make:migration create_{name}_table
+php artisan make:controller NameController
+```
 
 ## Config
 Conviene andare in `.env` e mettere `DB_CONNECTION=mysql`
