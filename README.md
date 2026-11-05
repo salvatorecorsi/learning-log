@@ -1,4 +1,4 @@
-# Lab
+# Learning Log
 
 My workspace for learning new languages and technologies, driven by curiosity and study.
 
