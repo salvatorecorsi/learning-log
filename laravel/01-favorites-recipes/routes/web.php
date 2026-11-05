@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RecipeController;
 use App\Models\Recipe;
 
 Route::get('/', function () {
@@ -8,11 +9,7 @@ Route::get('/', function () {
     return view('home', compact('pageTitle'));
 });
 
-Route::get('/recipes', function () {
-    $pageTitle = 'Ricette';
-    $recipes = Recipe::all();
-    return view('recipes.index', compact('pageTitle', 'recipes'));
-})->name('recipes.index');
+Route::get('/recipes', [RecipeController::class, 'getAll'])->name('recipes.index');
 
 Route::get('/recipes/create', function () {
     $pageTitle = 'Crea';
