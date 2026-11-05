@@ -80,7 +80,7 @@ Si usano principalmente dentro le route; è dove si chiamano effettivamente le f
 
 ```
 Route::get('/recipes', [RecipeController::class, 'getAll'])->name('recipes.index');
-// recipes.index indica la view php da caricare
+// recipes.index è semplicemente il nome da chiamare per ricostruire l'url, forse è utile far riferimento al file nella view, ecco perché recipes.index sarebe recipes/index.blade.php
 
 ```
 ```

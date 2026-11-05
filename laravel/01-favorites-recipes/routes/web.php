@@ -13,8 +13,12 @@ Route::get('/recipes', [RecipeController::class, 'getAll'])->name('recipes.index
 
 Route::get('/recipes/demo', function () {
     $demo_recipes = Recipe::factory()->create();
-    $fakeRecipes = RecipeController::class->fakeRecipes(10);
-    
+    return $demo_recipes;
+});
+
+Route::get('/recipes/demo/{count}', function ($count) {
+    $demo_recipes = Recipe::factory()->count($count)->create();
+    return $demo_recipes;
 });
 
 Route::get('/recipes/create', function () {
@@ -30,6 +34,7 @@ Route::get('/recipes/create', function () {
     return view('recipes.create', compact('pageTitle','result'));
 })->name('recipes.create');
 
+// Questo va messo dopo "demo" e "create", altrimenti potenzialmente lo intercetta prima
 Route::get('/recipes/{id}', function ($id) {
     $recipe = Recipe::find($id);
     $pageTitle = 'Ricetta trovata';
