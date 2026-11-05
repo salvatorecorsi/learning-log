@@ -20,7 +20,7 @@ class RecipeFactory extends Factory
         $name = fake()->word();
         return [
             'name' => $name,
-            'slug' => strtolower($name)
+            'slug' => strtolower($name) // occhio che $fake->word, può rigenerare la stessa parola quindi potrebbe fallire perché slug è unique
         ];
     }
 }
