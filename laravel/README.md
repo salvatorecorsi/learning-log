@@ -34,7 +34,7 @@ components
 partials
 ```
 ### Layout
-Di base utilizzi `@yield` per prendere pezzi di codice da altre parti, come ad esempio `@yield('content')` (get_the_content...), il file del layout va dentro `/layout`  (ad esempio `page.blade.php`)
+Di base utilizzi `@yield` per prendere pezzi di codice da altre parti, come ad esempio `@yield('content')` (get_the_content...), il file del layout va dentro `/layouts`  (ad esempio `page.blade.php`)
 Quando poi, vuoi costruire una pagina nuova (tipo home) che richiama il layout vai di:
 
 ```home.blade.php
@@ -66,7 +66,7 @@ Route::get('/', function () {
 });
 ```
 
-ps: compact di php, converte in oggetto
+ps: compact di php, converte in array associativo
 
 
 ### Partials
@@ -97,7 +97,11 @@ Praticamente sono dei file che determinano la struttura dati, li crei con `php a
 
 ```
 
-[Lo schema Blueprint](https://api.laravel.com/docs/8.x/Illuminate/Database/Schema/Blueprint.html) è utile per vedere la lista di funzioni comode che aiutano a configurare già il DB. Occhio che alcuni metodi possono creare [molteplici campi](https://api.laravel.com/docs/8.x/Illuminate/Database/Schema/Blueprint.html#method_timestamps)
+[Lo schema Blueprint](https://api.laravel.com/docs/13.x/Illuminate/Database/Schema/Blueprint.html) è utile per vedere la lista di funzioni comode che aiutano a configurare già il DB. Occhio che alcuni metodi possono creare [molteplici campi](https://api.laravel.com/docs/13.x/Illuminate/Database/Schema/Blueprint.html#method_timestamps)
+
+## Models
+Interfacce basati sul db. 
+`php artisan make:model {Nome}`
 
 ## Errori di tutti i giorni
 

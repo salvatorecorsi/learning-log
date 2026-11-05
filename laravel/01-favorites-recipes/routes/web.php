@@ -3,13 +3,16 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home');
+    $pageTitle = 'Home';
+    return view('home', compact('pageTitle'));
 });
 
 Route::get('/recipes', function () {
-    return view('recipes');
+    $pageTitle = 'Ricette';
+    return view('recipes', compact('pageTitle'));
 });
 
 Route::get('/ingredients', function () {
-    return view('ingredients');
+    $pageTitle = 'Ingredienti';
+    return view('ingredients', compact('pageTitle'));
 });
