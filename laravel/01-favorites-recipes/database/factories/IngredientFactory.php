@@ -2,11 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Models\Recipe;
+use App\Models\Ingredient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Recipe>
+ * @extends Factory<Ingredient>
  */
 class IngredientFactory extends Factory
 {
