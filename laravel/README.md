@@ -50,7 +50,7 @@ e nel layout
 <html lang="en">
 
 <body>
-    <x-header-custom>
+    <x-header-custom />
     <div class="content">
         @yield('the-content')
     </div>
@@ -62,7 +62,7 @@ Potenzialmente poi, se vuoi passarti delle props dal router:
 Route::get('/', function () {
     $pageTitle = 'Home page';
     $description = 'La descrizione';
-    return view('home', compact($pageTitle, $description));
+    return view('home', compact('pageTitle', 'description'));
 });
 ```
 
@@ -70,7 +70,7 @@ ps: compact di php, converte in oggetto
 
 
 ### Partials
-Da quanto ho trovato, sembra il vecchio modo di dichiarare componenti con, `@include('partials.{name}')` e ti carica quel partial lì, che devee anch'esso essere scritto con `{name}.blade.php`, importante tutti questi devono obbligatoriamente finire nella cartella `/partials`
+Da quanto ho trovato, sembra il vecchio modo di dichiarare componenti con, `@include('partials.{name}')` e ti carica quel partial lì, che devee anch'esso essere scritto con `{name}.blade.php`, per convenzione vanno a finire nella cartella `/partials` o `/shared`
 
 ### Components (preferisco)
 Richiami il componente con `<x-{name} />` e opzionalmente `<x-{name} props="">` è praticamente vue, e metti tutto dentro `/components`
