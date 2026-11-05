@@ -17,7 +17,7 @@ class IngredientFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->name();
+        $name = fake()->word();
         return [
             'name' => $name,
         ];
