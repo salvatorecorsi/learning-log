@@ -18,7 +18,7 @@ class RecipeFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->words(),
+            'title' => fake()->words(3, true),
             'content' => fake()->sentence(),
             'slug' => strtolower(fake()->unique()->word()) // occhio che $fake->word, può rigenerare la stessa parola quindi potrebbe fallire perché slug è unique
         ];

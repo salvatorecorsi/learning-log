@@ -214,3 +214,6 @@ Praticamente facendo il primo migrate, molto probabilmente avrai un errore tipo 
 ```
 
 e rinomina in `0001_01_01_000000_` i vari prefissi
+
+### Words genera un array
+cioè in `fake()->words()` se lo lanci così, ti fa un array di parole, altrimenti puoi fare `fake()->words(3,true)` per generarle come stringa, il numero di parole che ti serve

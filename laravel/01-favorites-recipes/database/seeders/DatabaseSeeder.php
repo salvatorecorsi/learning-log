@@ -17,6 +17,5 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Recipe::factory()->count(10)->has(Ingredient::factory()->count(3))->create();
-        //Recipe::factory()->count(10)->count(3)->create();
     }
 }

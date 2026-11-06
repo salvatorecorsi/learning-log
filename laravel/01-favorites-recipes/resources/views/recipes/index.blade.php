@@ -5,15 +5,14 @@
     @if($recipes->isEmpty())
         <p>Nessuna ricetta trovata :(</p>
     @else
-        @foreach($recipes as $recipe)
-            <a href="recipes/{{ $recipe->id }}">{{ $recipe->name }}</a>
-            @if($recipe->ingredients->isEmpty())
-                <p>Nessun ingrediente associato</p>
-            @else
-                {{ $recipe->ingredients }}
-            @endif
-
-
-        @endforeach
+        <ul>
+            @foreach($recipes as $recipe)
+                <li><a href="{{ route('recipes.single', $recipe) }}">{{ $recipe->title }}
+                    @if(!$recipe->ingredients->isEmpty())
+                        ({{ $recipe->ingredients->count() }})
+                    @endif
+                </a>
+            @endforeach
+        </ul>
     @endif
 @endsection

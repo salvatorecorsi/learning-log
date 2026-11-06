@@ -10,27 +10,12 @@ Route::get('/', function () {
 });
 
 Route::get('/recipes', [RecipeController::class, 'getAll'])->name('recipes.index');
+Route::get('/recipes/{id}', function($id) {
+    $recipe = Recipe::findOrFail($id);
+    $pageTitle = 'Single - '.$recipe->title;
+    return view('recipes.single', compact('recipe','pageTitle'));
 
-Route::get('/recipes/create', function () {
-    $pageTitle = 'Crea';
-    $name = "Pollone";
-
-    $result = Recipe::create([
-        'name' =>  $name,
-        'slug' => strtolower($name), // si lo so che è unique e che fallirà al secondo, stiamo calmi eh
-        'created_at' => now(),
-        'updated_at' => now(),
-    ]);
-    return view('recipes.create', compact('pageTitle','result'));
-})->name('recipes.create');
-
-// Questo va messo dopo "demo" e "create", altrimenti potenzialmente lo intercetta prima
-Route::get('/recipes/{id}', function ($id) {
-    $recipe = Recipe::find($id);
-    $pageTitle = 'Ricetta trovata';
-
-    return view('recipes.get', compact('pageTitle','recipe'));
-})->name('recipes.get');
+})->name('recipes.single');
 
 Route::get('/ingredients', function () {
     $pageTitle = 'Ingredienti';
