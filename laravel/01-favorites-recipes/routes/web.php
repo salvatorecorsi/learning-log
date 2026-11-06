@@ -11,16 +11,6 @@ Route::get('/', function () {
 
 Route::get('/recipes', [RecipeController::class, 'getAll'])->name('recipes.index');
 
-Route::get('/recipes/demo', function () {
-    $demo_recipes = Recipe::factory()->create();
-    return $demo_recipes;
-});
-
-Route::get('/recipes/demo/{count}', function ($count) {
-    $demo_recipes = Recipe::factory()->count($count)->create();
-    return $demo_recipes;
-});
-
 Route::get('/recipes/create', function () {
     $pageTitle = 'Crea';
     $name = "Pollone";

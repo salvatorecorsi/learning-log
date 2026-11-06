@@ -168,6 +168,38 @@ public function missingName(): array
 
 ```
 
+Rispetto all'ordine dei parametri, il create() deve essere l'ultimo per il resto non cambia, così come negli altri casi (make, get...), quindi tipo:
+
+```
+Recipe::factory()->count(10)->vegetarian()->has(Ingredient::factory()->count(3))->...->create()
+```
+
+https://laravel.com/framework/docs/eloquent-factories
+
+## Seeders
+Ti evitano la possibilità di runnare i factory dalle route, ma ti crea un comando da cli
+
+```
+php artisan db:seed
+```
+--class=RecipeSeeder ti permette di invocare una seed apposita, diversamente senza credo che ti invochi DatabaseSeeder.php; convenzionalmente le precise "RecipeSeeder", vanno a invocare solo i modelli interessati (Recipe), quelli massivi di altri factory si utilizza DatabaseSeeder.php
+
+```
+php artisan make:seeder RecipeSeeder
+```
+
+volendo si può anche invocare dal seed principale gli altri seed:
+
+```
+...
+$this->call([
+    RecipeSeeder::class
+]);
+...
+```
+invocando così il seeder specifico
+
+
 
 ## Errori di tutti i giorni
 

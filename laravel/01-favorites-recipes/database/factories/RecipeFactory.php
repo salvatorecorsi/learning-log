@@ -17,10 +17,10 @@ class RecipeFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->word();
         return [
-            'name' => $name,
-            'slug' => strtolower($name) // occhio che $fake->word, può rigenerare la stessa parola quindi potrebbe fallire perché slug è unique
+            'title' => fake()->words(),
+            'content' => fake()->sentence(),
+            'slug' => strtolower(fake()->unique()->word()) // occhio che $fake->word, può rigenerare la stessa parola quindi potrebbe fallire perché slug è unique
         ];
     }
 }

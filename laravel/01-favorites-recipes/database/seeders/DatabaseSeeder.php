@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Recipe;
+use App\Models\Ingredient;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,8 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-    
+        Recipe::factory()->count(10)->has(Ingredient::factory()->count(3))->create();
+        //Recipe::factory()->count(10)->count(3)->create();
     }
 }
